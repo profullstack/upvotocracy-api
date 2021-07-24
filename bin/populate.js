@@ -47,6 +47,9 @@ async function bitcoinlatte() {
 	const topics = [{
 		tag: 'cbdc',
 		cat: process.env.BITCOINLATTE_CAT_CBDC
+	}, {
+		tag: 'defi',
+		cat: process.env.BITCOINLATTE_CAT_DEFI
 	}];
 
 	for (let tag of cryptos) {
