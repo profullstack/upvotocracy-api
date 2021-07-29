@@ -181,6 +181,23 @@ export const getNimiqAddress = async (req, res) => {
   res.send(user.nimiqAddress);
 };
 
+export const updateEthereumAddress = async (req, res) => {
+  await User.findOneAndUpdate(
+    { _id: req.user.id },
+    { ethereumAddress: req.body.nimiqaddress },
+    { upsert: true },
+  ).catch(err => {
+    console.log(err);
+    res.status(500).send();
+  });
+  res.status(201).json({ status: 'success' });
+};
+
+export const getEthereumAddress = async (req, res) => {
+  const user = await User.findOne({ username: req.body.username });
+  res.send(user.ethereumAddress);
+};
+
 export const getLinks = async (req, res) => {
   const user = await User.findOne({ username: req.body.username });
   res.json(user.links);
@@ -308,4 +325,6 @@ export default {
   getApiKeys,
   revokeApiKey,
   deleteUser,
+  updateEthereumAddress,
+  getEthereumAddress,
 };
