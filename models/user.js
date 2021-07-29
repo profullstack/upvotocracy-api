@@ -21,6 +21,7 @@ const userSchema = new Schema(
     },
     bitcoinAddress: { type: String },
     nimiqAddress: { type: String },
+    ethereumAddress: { type: String },
     links: [
       {
         name: String,
