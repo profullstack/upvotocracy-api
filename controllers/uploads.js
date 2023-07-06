@@ -66,6 +66,9 @@ export const uploadFile = async (req, res) => {
     };
 
     if (req.file.type == 'video') {
+      // todo: convert to h264/mp4
+      // https://github.com/fluent-ffmpeg/node-fluent-ffmpeg#cloning-an-ffmpegcommand
+
       const thumbName = await getThumbnail(req.file.path, req.file.id);
       thumb = `${process.env.SITE_URL}/api/1/i/${thumbName}`;
       upload.thumbPath = `uploads/images/${thumbName}`;
