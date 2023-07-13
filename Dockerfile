@@ -1,4 +1,4 @@
-FROM node:lts-alpine3.12
+FROM node:18-alpine
 RUN mkdir -p /usr/src/app
 RUN apk add vim python3 python3-dev py3-pip build-base curl ffmpeg
 WORKDIR /usr/src/app
